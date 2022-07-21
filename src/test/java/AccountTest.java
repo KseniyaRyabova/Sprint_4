@@ -4,11 +4,11 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
 @RunWith(Parameterized.class)
-public class NegativeAccountTest {
+public class AccountTest {
     private final String name;
     private final boolean expectedResult;
 
-    public NegativeAccountTest(String name, boolean expectedResult) {
+    public AccountTest(String name, boolean expectedResult) {
         this.name = name;
         this.expectedResult = expectedResult;
     }
@@ -20,7 +20,15 @@ public class NegativeAccountTest {
                 {" Ivan Grozniy ", false},
                 {"кто-то еще ", false},
                 {" еще кто-то", false},
-                {" ФамилияИмя", false}
+                {" ФамилияИмя", false},
+                {"   ", false},
+                {"1 3", true},
+                {"12", false},
+                {"11111111 1111111119", true},
+                {"1111111111 111111120", false},
+                {null, false},
+                {"Анна Ахметова", true},
+                {"Ivan Grozniy", true}
         };
     }
 

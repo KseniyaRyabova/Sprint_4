@@ -1,13 +1,19 @@
 public class Account {
 
-    private final String name;
+    private String name;
 
     public Account(String name) {
-        this.name = name;
+            this.name = name;
     }
 
     public boolean checkNameToEmboss() {
-        return name.length() >= 3 && name.length() <= 19 && !name.startsWith(" ") && !name.endsWith(" ") && name.contains(" ");
+        try {
+            return name.length() > 2 && 19 >= name.length() && !name.startsWith(" ") && !name.endsWith(" ")
+                    && name.contains(" ");
+        } catch (NullPointerException ex) {
+            return false;
+        }
+
     }
 
 }
